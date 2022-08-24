@@ -1,8 +1,7 @@
-name: Add Assigness
-
+name: Issues
 on:
   issues:
-    types: [opened, edited]
+    types: [opened, reopened]
 
 jobs:
   add-assigness:
@@ -15,3 +14,19 @@ jobs:
           token: ${{ secrets.TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           assignees: 'xingkongqwq,xkbot233'
+      - name: Create comment
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'create-comment'
+          token: ${{ secrets.TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            你好，@${{ github.event.issue.user.login }}。我已经为你指定了受让人
+            在指定的受让人处理你的问题之前，请确保你提供了足够的背景信息。
+      - name: Add labels
+        uses: actions-cool/issues-helper@v3
+        with:
+          actions: 'add-labels'
+          token: ${{ secrets.TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          labels: 'wait'
