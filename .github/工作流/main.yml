@@ -29,11 +29,4 @@ jobs:
           repo-token: ${{ secrets.TOKEN }}
           issue-close-message: "@${{ github.event.issue.user.login }} 请提供描述。"
           issue-pattern: '/^[\s\S]*.*[^\s][\s\S]*$/'
-      - name: Add labels
-        uses: actions-cool/issues-helper@v3
-        with:
-          actions: 'add-labels'
-          token: ${{ secrets.TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
-          labels: 'wait'
      
