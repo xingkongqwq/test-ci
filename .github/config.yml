@@ -1,0 +1,8 @@
+addReviewers: true
+addAssignees: true
+assignees:
+  - xingkongqwq
+  - xkbot233
+
+numberOfReviewers: 0
+numberOfAssignees: 2
