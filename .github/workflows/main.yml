@@ -1,13 +1,14 @@
-name: Auto Comment
-on: [issues]
+name: Auto Assign
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-      - uses: wow-actions/auto-comment@v1
+      - uses: wow-actions/auto-assign@v1
         with:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          issuesOpened: |
-           @{{ author }}
-            Thank you for raising an issue. We will will investigate into the matter and get back to you as soon as possible.
-            Please make sure you have given us as much context as possible.
+          CONFIG_FILE: config-file-path
