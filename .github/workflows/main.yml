@@ -1,14 +1,17 @@
-name: Auto Assign
+name: Add Assigness
+
 on:
   issues:
-    types: [opened]
-  pull_request:
-    types: [opened]
+    types: [opened, edited]
+
 jobs:
-  run:
+  add-assigness:
     runs-on: ubuntu-latest
     steps:
-      - uses: wow-actions/auto-assign@v1
+      - name: Add assigness
+        uses: actions-cool/issues-helper@v3
         with:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-          CONFIG_FILE: config-file-path
+          actions: 'add-assignees'
+          token: ${{ secrets.TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          assignees: 'xingkongqwq,xkbot233'
