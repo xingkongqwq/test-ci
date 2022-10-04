@@ -236,6 +236,15 @@ jQuery.noConflict();
         })
         $('.GoodsSkuStock').each(function(){this.value = '30'})
     });
+    $('#AddGoodsImportantParamButton').after(`
+    <input type="button" id="nset" class="addparams default_bb" value="一键设置">
+    `)
+    $('#nset').click(function(){
+        $("#GoodsParamsContent > span:nth-child(1) > span > input.input_text.GoodsParamsValue.notEmpty").val((new Date()).getFullYear())
+        $("#GoodsParamsContent > span:nth-child(2) > span > input.input_text.GoodsParamsValue.notEmpty").val("秋，冬")
+        $("#GoodsParamsContent > span:nth-child(3) > span > input.input_text.GoodsParamsValue.notEmpty").val("棉")
+        $('.DeleteGoodsParamsButton').each(function(){this.click()})
+    });
 })(jQuery);
 
 /*
