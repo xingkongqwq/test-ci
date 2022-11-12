@@ -134,7 +134,7 @@ jQuery.noConflict();
                 if(cl.length === 0){
                     alert("请设置颜色");
                     return;
-                }
+                }//
                 localStorage.setItem('sz',sz);
                 localStorage.setItem('cl',cl);
                 location.reload();
