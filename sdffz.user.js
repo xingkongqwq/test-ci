@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         闪电发辅助
 // @namespace    http://tampermonkey.net/
-// @version      0.1.2
+// @version      0.1.3
 // @run-at       document-end
 // @description  闪电发辅助
 // @author       xingkongqwq
