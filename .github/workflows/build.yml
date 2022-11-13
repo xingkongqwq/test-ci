@@ -26,7 +26,7 @@ jobs:
     - name: Install .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 4.8.x
+        dotnet-version: 2.1.30
 
     # 添加 MSBuild.exe 到环境变量: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild.exe
