@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Release]
 
     runs-on: windows-latest
 
@@ -38,12 +38,13 @@ jobs:
 
     # 编译整个项目
     - name: Build the solution
-      run: msbuild /p:Configuration=$env:Configuration
+      run: msbuild 
       env:
         Configuration: ${{ matrix.configuration }}
 
     - name: Commit files
       run: |
+        git add .
         git config --local user.email "111216771+xkbot233@users.noreply.github.com"
         git config --local user.name "xkbot233"
         git commit -a -m "Add changes"
