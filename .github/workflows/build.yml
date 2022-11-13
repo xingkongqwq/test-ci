@@ -18,7 +18,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [windows-latest]
 
     steps:
     - uses: actions/checkout@v3
@@ -26,12 +26,9 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
-
-    - name: Install dependencies
-      run: dotnet restore
       
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: msbuild
 
     - name: Commit files
       run: |
